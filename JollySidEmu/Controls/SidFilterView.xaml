@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="JollySidEmu.Controls.SidFilterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JollySidEmu.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <!-- DataContext is the FilterViewModel -->
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Cutoff Low" Width="80"/>
+            <Slider Minimum="0" Maximum="7" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding CutoffLow, Mode=TwoWay}" Width="120"/>
+            <TextBlock Text="{Binding CutoffLow}" Width="30"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Cutoff High" Width="80"/>
+            <Slider Minimum="0" Maximum="255" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding CutoffHigh, Mode=TwoWay}" Width="120"/>
+            <TextBlock Text="{Binding CutoffHigh}" Width="30"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Resonance" Width="80"/>
+            <Slider Minimum="0" Maximum="15" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding Resonance, Mode=TwoWay}" Width="120"/>
+            <TextBlock Text="{Binding Resonance}" Width="30"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+            <CheckBox Content="Voice 1" IsChecked="{Binding Voice1Enabled}" Margin="0,0,5,0"/>
+            <CheckBox Content="Voice 2" IsChecked="{Binding Voice2Enabled}" Margin="0,0,5,0"/>
+            <CheckBox Content="Voice 3" IsChecked="{Binding Voice3Enabled}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+            <TextBlock Text="Mode:" Width="80"/>
+            <ComboBox ItemsSource="{Binding FilterModes}" SelectedItem="{Binding FilterMode}" Width="120"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+            <TextBlock Text="Volume" Width="80"/>
+            <Slider Minimum="0" Maximum="15" Value="{Binding Volume}" Width="120"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

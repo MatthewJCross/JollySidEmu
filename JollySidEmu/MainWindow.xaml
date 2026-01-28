@@ -1,0 +1,44 @@
+﻿<Window x:Class="JollySidEmu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JollySidEmu"
+        xmlns:vm="clr-namespace:JollySidEmu.ViewModels"
+        xmlns:audio="clr-namespace:JollySidEmu.Audio"
+        xmlns:controls="clr-namespace:JollySidEmu.Controls"
+        mc:Ignorable="d"
+        Title="Jolly SID Emulator" Width="960" Height="860" Style="{DynamicResource JollyWindowStyle}" Icon="/C64Sid.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="10">
+            <GroupBox Header="Voice 1">
+                <controls:SidVoiceView Voice="{Binding Voice1}" />
+            </GroupBox>
+
+            <GroupBox Header="Voice 2">
+                <controls:SidVoiceView Voice="{Binding Voice2}" />
+            </GroupBox>
+
+            <GroupBox Header="Voice 3">
+                <controls:SidVoiceView Voice="{Binding Voice3}" />
+            </GroupBox>
+
+            <GroupBox Header="Filter">
+                <controls:SidFilterView DataContext="{Binding Filter}" />
+            </GroupBox>
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <controls:RegisterInspectorView DataContext="{Binding RegisterInspector}" Grid.Row="0"/>            
+            <controls:OscilloscopeView Grid.Row="1" Margin="5" DataContext="{Binding Oscilloscope}"/>
+        </Grid>
+    </Grid>
+</Window>
+    

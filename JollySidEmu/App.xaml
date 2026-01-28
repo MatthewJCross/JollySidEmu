@@ -1,0 +1,16 @@
+﻿<Application x:Class="JollySidEmu.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:JollySidEmu"
+             xmlns:conv="clr-namespace:JollySidEmu.Converters"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/JollyWindowStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <conv:SidValueToHertzStringConverter x:Key="SidValueToHertzStringConverter"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

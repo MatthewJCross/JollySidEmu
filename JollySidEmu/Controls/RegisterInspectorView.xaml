@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="JollySidEmu.Controls.RegisterInspectorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+
+    <!-- DataContext = RegisterInspectorViewModel -->
+    <DataGrid ItemsSource="{Binding Registers}" AutoGenerateColumns="False" IsReadOnly="True" FontFamily="Consolas" FontSize="12" HeadersVisibility="Column" GridLinesVisibility="All">
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Address" Binding="{Binding Address, StringFormat={}{0:X4}}" Width="60"/>
+            <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="130"/>
+            <DataGridTextColumn Header="Hex" Binding="{Binding Hex}" Width="40"/>
+            <DataGridTextColumn Header="Dec" Binding="{Binding Decimal}" Width="60"/>
+            <DataGridTextColumn Header="Binary" Binding="{Binding Binary}" Width="70"/>
+            <DataGridTextColumn Header="Meaning" Binding="{Binding Decoded}" Width="*"/>
+        </DataGrid.Columns>
+    </DataGrid>
+</UserControl>
